@@ -3,12 +3,6 @@
 {% block title %}{{ season_name }}の魚{% endblock %}
 
 {% block content %}
-<!-- 検索バーのセクション -->
-<div class="search-bar mb-3">
-    <!-- 魚の名前で検索するためのインプットフィールド -->
-    <input type="text" id="searchFish" class="form-control" placeholder="魚の名前で検索...">
-</div>
-
 <!-- ページのタイトル -->
 <h1 class="mb-4 text-center">{{ season_name }}の魚</h1>
 
@@ -57,23 +51,4 @@
     </div>
     {% endfor %}
 </div>
-
-<!-- JavaScript for the search functionality -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const searchInput = document.getElementById('searchFish');
-    searchInput.addEventListener('input', function() {
-        const filter = searchInput.value.toLowerCase();
-        const cards = document.querySelectorAll('.card');
-        cards.forEach(card => {
-            const title = card.querySelector('.card-title').textContent.toLowerCase();
-            if (title.includes(filter)) {
-                card.parentElement.style.display = '';
-            } else {
-                card.parentElement.style.display = 'none';
-            }
-        });
-    });
-});
-</script>
 {% endblock %}
